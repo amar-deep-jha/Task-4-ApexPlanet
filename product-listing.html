@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Product Listing</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
+    }
+    .parallax {
+      background-image: url('https://images.unsplash.com/photo-1567306226416-28f0efdc88ce');
+      height: 300px;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .header {
+      text-align: center;
+      padding: 30px;
+      background: #ffffff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .product-card {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      transition: transform 0.2s ease-in-out;
+    }
+    .product-card:hover {
+      transform: scale(1.02);
+    }
+    .product-img {
+      height: 200px;
+      object-fit: cover;
+    }
+    .filter-bar {
+      margin: 20px 0;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="parallax"></div>
+
+<div class="header">
+  <h1>🛍️ Smart Product Listing</h1>
+  <p>Filter and sort your favourite products with ease.</p>
+</div>
+
+<div class="container">
+  <div class="filter-bar">
+    <select id="categoryFilter" class="form-select w-auto" onchange="filterProducts()">
+      <option value="all">All Categories</option>
+      <option value="electronics">Electronics</option>
+      <option value="fashion">Fashion</option>
+    </select>
+    <select id="sortBy" class="form-select w-auto" onchange="filterProducts()">
+      <option value="default">Sort By</option>
+      <option value="price-asc">Price: Low to High</option>
+      <option value="price-desc">Price: High to Low</option>
+    </select>
+  </div>
+  <div id="productList" class="row g-4"></div>
+</div>
+
+<script>
+  const products = [
+    {
+      name: "Wireless Headphones",
+      category: "electronics",
+      price: 2999,
+      image: "https://cdn.thewirecutter.com/wp-content/media/2023/07/bluetoothheadphones-2048px-0876.jpg?auto=webp&quality=75&width=1024"
+    },
+    {
+      name: "Smart Watch",
+      category: "electronics",
+      price: 4999,
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd8_pJ0i5zBzf7b3twoQYKuVKqYvGRHf0ghA&s"
+    },
+    {
+      name: "Denim Jacket",
+      category: "fashion",
+      price: 1899,
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdpS78qyUfMYiuve-eW0-uY35PmmF8U1r0gw&s"
+    },
+    {
+      name: "Sneakers",
+      category: "fashion",
+      price: 2499,
+      image: "https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/29996644/2024/9/26/f5ad8453-11ab-4b1d-9347-05c49a9f3d431727355174871-Red-Tape-Men-Colourblocked-Round-Toe-Memory-Foam-Sneakers-96-1.jpg"
+    }
+  ];
+
+  function displayProducts(filtered) {
+    const productList = document.getElementById("productList");
+    productList.innerHTML = "";
+    filtered.forEach(product => {
+      const col = document.createElement("div");
+      col.className = "col-md-6 col-lg-4 col-xl-3";
+      col.innerHTML = `
+        <div class="product-card">
+          <img src="${product.image}" class="product-img w-100">
+          <div class="p-3">
+            <h5>${product.name}</h5>
+            <p>₹${product.price}</p>
+            <span class="badge bg-secondary">${product.category}</span>
+          </div>
+        </div>
+      `;
+      productList.appendChild(col);
+    });
+  }
+
+  function filterProducts() {
+    const category = document.getElementById("categoryFilter").value;
+    const sort = document.getElementById("sortBy").value;
+
+    let filtered = [...products];
+    if (category !== "all") {
+      filtered = filtered.filter(p => p.category === category);
+    }
+
+    if (sort === "price-asc") {
+      filtered.sort((a, b) => a.price - b.price);
+    } else if (sort === "price-desc") {
+      filtered.sort((a, b) => b.price - a.price);
+    }
+
+    displayProducts(filtered);
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    displayProducts(products);
+  });
+</script>
+
+</body>
+</html>

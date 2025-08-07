@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amar Deep Jha | Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --main-color: #ff6b6b;
+      --bg-light: #f8f9fa;
+      --text-dark: #212529;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      scroll-behavior: smooth;
+    }
+    .navbar-brand {
+      font-weight: bold;
+      color: var(--main-color) !important;
+    }
+    .hero-section {
+      background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat fixed;
+      color: white;
+      padding: 120px 20px;
+      text-align: center;
+      position: relative;
+    }
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+    .hero-section .content {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-section h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+    }
+    .section-title {
+      border-bottom: 3px solid var(--main-color);
+      display: inline-block;
+      margin-bottom: 20px;
+      padding-bottom: 5px;
+    }
+    .card {
+      border: none;
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+    .intro-section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .intro-section h2 {
+      margin-bottom: 20px;
+    }
+    .tools-icons i {
+      font-size: 2rem;
+      margin: 10px;
+      color: var(--main-color);
+    }
+    footer {
+      background: #212529;
+      color: #fff;
+      padding: 40px 0;
+      text-align: center;
+    }
+    .social-icons a {
+      color: var(--main-color);
+      margin: 0 10px;
+      font-size: 1.5rem;
+    }
+    .badge {
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Amar Deep Jha</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="content">
+    <h1>Hi, I'm Amar Deep Jha</h1>
+    <p class="lead">Python Developer | Data Analyst | SQL | Web Scraping | Leader</p>
+  </div>
+</section>
+
+<!-- Introduction Section -->
+<section class="intro-section bg-white">
+  <div class="container">
+    <h2 class="section-title">Welcome to My Portfolio</h2>
+    <p>I’m passionate about solving real-world problems with elegant and efficient code. My expertise lies in Python, Data Analytics, and building AI-powered tools. Feel free to explore my projects and get in touch!</p>
+    <div class="tools-icons">
+      <i class="fab fa-python"></i>
+      <i class="fas fa-database"></i>
+      <i class="fab fa-js"></i>
+      <i class="fab fa-html5"></i>
+      <i class="fab fa-css3-alt"></i>
+      <i class="fas fa-cloud"></i>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Amar Deep Jha. All Rights Reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
